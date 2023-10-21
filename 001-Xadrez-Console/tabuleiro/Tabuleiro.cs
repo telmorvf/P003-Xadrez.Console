@@ -42,6 +42,19 @@ namespace tabuleiro
             p.Posicao = pos;
         }
 
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (Peca(pos) == null )
+            {
+                return null;
+            }
+            Peca aux = Peca(pos);
+            aux.Posicao = null;                     //Retirar a posição da peça
+            Pecas[pos.Linha, pos.Coluna] = null;    //Retirar a posição do tabuleiro
+            return aux;
+        }
+
+
         public bool PosicaoValida(Posicao pos)
         {
             if (pos.Linha<0 || pos.Linha >= Linhas || pos.Coluna< 0 || pos.Coluna >= Colunas)

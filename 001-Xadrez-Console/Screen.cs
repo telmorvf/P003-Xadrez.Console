@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 using tabuleiro;
+using xadrez;
 
 namespace _001_Xadrez_Console
 {
@@ -28,6 +29,14 @@ namespace _001_Xadrez_Console
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new PosicaoXadrez(coluna, linha);
         }
 
         public static void ImprimirPeca(Peca peca)
