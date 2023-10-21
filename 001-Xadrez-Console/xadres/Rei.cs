@@ -11,6 +11,6 @@ namespace xadres
         public override string ToString()
         {
             return "R";
-        }
+        } 
     }
 }
