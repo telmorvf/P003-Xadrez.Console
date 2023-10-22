@@ -14,20 +14,33 @@ namespace _001_Xadrez_Console
 
                 while (!partida.Terminada)
                 {
-                    Console.Clear();
-                    Screen.ImprimirTabuleiro(partida.Tab);
+                    try
+                    {
+                        Console.Clear();
+                        Screen.ImprimirTabuleiro(partida.Tab);
 
-                    Console.Write("\nOrigem: ");
-                    Posicao origem = Screen.LerPosicaoXadrez().ToPosicao();
+                        Console.WriteLine("\nJogada: " + partida.jogada);
+                        Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
 
-                    bool[,] posicoesPossiveis = partida.Tab.Peca(origem).MovimentosPossiveis();
-                    Console.Clear();
-                    Screen.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
+                        Console.Write("\nOrigem: ");
+                        Posicao origem = Screen.LerPosicaoXadrez().ToPosicao();
+                        partida.ValidarPosicaoDeOrigem(origem);
 
-                    Console.Write("\nDestino: ");
-                    Posicao destino = Screen.LerPosicaoXadrez().ToPosicao();
+                        bool[,] posicoesPossiveis = partida.Tab.Peca(origem).MovimentosPossiveis();
+                        Console.Clear();
+                        Screen.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
+                        
+                        Console.Write("\nDestino: ");
+                        Posicao destino = Screen.LerPosicaoXadrez().ToPosicao();
+                        partida.ValidarPosicaoDeDestino(origem, destino);
 
-                    partida.ExecutaMovimento(origem, destino);
+                        partida.RealizaJogada(origem, destino);
+                    }
+                    catch (TabuleiroException e)
+                    {
+                        Console.WriteLine(e.Message);
+                        Console.ReadKey();
+                    }
                 }
             }
             catch (TabuleiroException e)
