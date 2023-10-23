@@ -2,7 +2,6 @@
 
 namespace xadrez
 {
-
     class Peao : Peca
     {
         private PartidaDeXadrez partida;

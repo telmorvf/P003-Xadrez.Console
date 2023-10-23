@@ -15,7 +15,6 @@ namespace xadrez
 
         private HashSet<Peca> Pecas;
         private HashSet<Peca> Capturadas;
-        
 
         public PartidaDeXadrez()
         {
@@ -369,7 +368,5 @@ namespace xadrez
             ColocarNovaPeca('g', 7, new Peao(Tab, Cor.Preta, this));
             ColocarNovaPeca('h', 7, new Peao(Tab, Cor.Preta, this));
         }
-
-
     }
 }
