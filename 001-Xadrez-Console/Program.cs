@@ -28,7 +28,7 @@ namespace _001_Xadrez_Console
                         bool[,] posicoesPossiveis = partida.Tab.Peca(origem).MovimentosPossiveis();
                         Console.Clear();
                         Screen.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
-                        
+
                         Console.Write("\nDestino: ");
                         Posicao destino = Screen.LerPosicaoXadrez().ToPosicao();
                         partida.ValidarPosicaoDeDestino(origem, destino);
